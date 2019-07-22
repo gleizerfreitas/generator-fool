@@ -13,7 +13,7 @@ function cssTranspile() {
 }
 
 function pugCompile() {
-  return src('src/*.pug', {allowEmpty: true})
+  return src('src/pug/*.pug', {allowEmpty: true})
     .pipe(pug())
     .pipe(dest('dist'));
 }
