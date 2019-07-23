@@ -7,7 +7,6 @@
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
-    "gulp-uglify": "^3.0.2",
     "gulp-header": "^2.0.9",
     "gulp-rename": "^1.4.0",
     "gulp-load-plugins": "^2.0.0",
@@ -17,6 +16,7 @@
     "gulp-watch-pug": "^1.0.0",
     "flexboxgrid-sass": "^8.0.5",
     "sass-flex-mixin": "^1.0.3",
-    "elegant-icons": "^0.0.1"
+    "elegant-icons": "^0.0.1",
+    "gulp-tinify": "1.0.2"
   }
 }
