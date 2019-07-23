@@ -34,6 +34,11 @@ module.exports = class extends Generator {
 			default	: 'gleizerf@gmail.com'
 		}, {
 			type    : 'input',
+			name	: 'tinifyAPIKey',
+			message	: 'What is your tinifyAPIKey?',
+			default	: '0Fd5wTMn0Rzfx5gSsp8v5dPXhC6cc27f'
+		}, {
+			type    : 'input',
 			name	: 'version',
 			message	: 'What is the version of your app?',
 			default	: '0.1.0'
@@ -42,6 +47,7 @@ module.exports = class extends Generator {
 			this.appdescription = answers.description;
 			this.appauthor = answers.yourname;
 			this.youremail = answers.youremail;
+			this.tinifyAPIKey = answers.tinifyAPIKey;
 			this.appversion = answers.version;
 		});
 	}
@@ -58,6 +64,7 @@ module.exports = class extends Generator {
 				appdescription: this.appdescription,
 				appauthor: this.appauthor,
 				youremail: this.youremail,
+				tinifyAPIKey: this.tinifyAPIKey,
 				appversion: this.appversion,
 				appyear: new Date().getFullYear()
 			};
@@ -69,7 +76,7 @@ module.exports = class extends Generator {
 		this.fs.copy(sourceRoot + '/src', destRoot + '/src');
 		this.fs.copy(sourceRoot + '/_gitignore', destRoot + '/.gitignore');
 
-		this.fs.copy(sourceRoot + '/Gulpfile.js', destRoot + '/Gulpfile.js');
+		this.fs.copyTpl(sourceRoot + '/Gulpfile.js', destRoot + '/Gulpfile.js', templateContext);
 		this.fs.copyTpl(sourceRoot + '/package-gulp.json', destRoot + '/package.json', templateContext);
 
 		// ---------------------------
