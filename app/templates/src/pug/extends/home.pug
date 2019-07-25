@@ -7,15 +7,9 @@ html(lang="en")
 	head
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(href="css/style.css", rel="stylesheet")
-
-		block head
-			
 		title #{siteTitle}
 	body
-		include ../modules/menu
 		include ../modules/header
-		main
-			section
-				block content
+		block content
 		include ../modules/footer
-		block scripts
+		script(src="js/app.js")
