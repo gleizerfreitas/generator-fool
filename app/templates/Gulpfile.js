@@ -26,7 +26,7 @@ function cssTranspile() {
 
 function imgTinify() {
   return src('src/img/*')
-    .pipe(tinify('<%= tinifyAPIKey %>'))
+    //.pipe(tinify('<%= tinifyAPIKey %>'))
     .pipe(dest('dist/img'));
 }
 

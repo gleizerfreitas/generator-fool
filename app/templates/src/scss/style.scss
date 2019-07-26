@@ -2,7 +2,93 @@
 @import	"config";
 @import	"mixins";
 
+
+// start typography
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: $font;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: left;
+    color: map-get($palette, 02);
+}
+
+a {
+    color: map-get($palette, 01);
+    // .transition-all; MIXIN for transitions
+    &:hover,
+    &:focus {
+        color: darken(map-get($palette, 01), 15%);
+        text-decoration: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    color: map-get($palette, 02);
+}
+
+h1 { font-size: 2.5em; }
+h2 { 
+    font-size: 2em;
+    color: map-get($palette, 01);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.15em; }
+
+// start general
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+}
+
+section {
+    padding: 6em 0;
+}
+
+hr {
+    margin: 2rem auto;
+    height: 1px;
+    border: 0;
+    border-top:1px solid lighten(map-get($palette, 02), 15%);
+}
+
+img { 
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.button {
+    padding: 1em 5em;
+    text-transform: uppercase;
+    background-color: map-get($palette, 01);
+    color:white;
+    border-radius: .15em;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color:white;
+        background-color: lighten(map-get($palette, 01), 5%);
+    }
 }
 
