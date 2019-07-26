@@ -1,4 +1,8 @@
-// Flexboxgrid-Sass by 
-@import "../../node_modules/flexboxgrid-sass/flexboxgrid.scss";
+
 @import	"config";
 @import	"mixins";
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+

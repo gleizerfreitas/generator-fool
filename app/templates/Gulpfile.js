@@ -7,10 +7,20 @@ const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
 const tinify = require('gulp-tinify');
 
+function cpLibElegantIcons() {
+  return src('node_modules/elegant-icons/**/*')
+    .pipe(dest('dist/lib/elegant-icons'));
+}
+
+function cpLibFlexBoxGrid() {
+  return src('node_modules/flexboxgrid-sass/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(dest('dist/lib/flexboxgrid'));
+}
 
 function cssTranspile() {
 	return src('src/scss/*.scss')
-	.pipe(sass().on('error', sass.logError))
+	  .pipe(sass().on('error', sass.logError))
     .pipe(dest('dist/css'));
 }
 
@@ -35,6 +45,9 @@ function publish() {
 }
 
 exports.build = series(
+  cpLibElegantIcons,
+  cpLibFlexBoxGrid,
+  imgTinify,
   parallel(
     cssTranspile,
     pugCompile),
