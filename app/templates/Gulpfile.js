@@ -44,7 +44,7 @@ function cssTranspile() {
 
 function imgTinify() {
   return src(paths.images.src)
-    //.pipe(tinify('<%= tinifyAPIKey %>'))
+    //.pipe(tinify('0Fd5wTMn0Rzfx5gSsp8v5dPXhC6cc27f'))
     .pipe(dest(paths.images.dest));
 }
 
@@ -59,12 +59,6 @@ function cpLibElegantIcons() {
     .pipe(dest('dist/lib/elegant-icons'));
 }
 
-function cpLibFlexBoxGrid() {
-  return src('node_modules/flexboxgrid-sass/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(dest('dist/lib/flexboxgrid'));
-}
-
 function observe() {
   watch(paths.styles.src, series(cssTranspile, reload));
   watch(paths.docs.srcWatch, series(pugCompile, reload));
@@ -73,8 +67,6 @@ function observe() {
 exports.build = series(
   parallel(
     cpLibElegantIcons,
-    cpLibFlexBoxGrid),
-  parallel(
     imgTinify,
     cssTranspile,
     pugCompile),
