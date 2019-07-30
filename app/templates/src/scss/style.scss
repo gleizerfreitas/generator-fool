@@ -69,7 +69,7 @@ header {
     @include for-lg {
         height: 100vh;
     } 
-    h1,
+    h1 { color: white; }
     a {
         color: white;
         &:hover {
@@ -96,8 +96,7 @@ img {
 }
 
 .button {
-    padding: 1em 5em;
-    text-transform: uppercase;
+    padding: 1em 3em;
     background-color: map-get($palette, 01);
     color:white;
     border-radius: 6px;
@@ -109,6 +108,24 @@ img {
         background-color: lighten(map-get($palette, 01), 5%);
     }
 }
+
+.magenta {color:map-get($palette, 01); }
+
+//overlay
+#overlay {
+    position: fixed;
+    z-index: 3000;
+    height: 100%;
+    width: 100%;
+    opacity:1;
+    top: 0;
+    bottom: 0;
+    left: 0;    
+    right: 0;
+    background-color: map-get($palette, 01);
+    -webkit-animation: slide-down 300ms ease-out;
+    animation: slide-down 300ms ease-out 1000ms; 
+ }
 
 // modules
 #nav-main {
@@ -205,7 +222,20 @@ img {
 }
 
 #hero {
-    padding-top: 6em;
+    padding-top: 10em;
+    h1 {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 4em;
+        margin-bottom: 0;
+        @include for-lg {
+            font-size: 7em;
+        }
+    }
+    p {
+        margin: 0 0 4em 0;
+        line-height: 1.5em;
+    }
 }
 
 #blog {

@@ -4,6 +4,9 @@ const nav = document.querySelector("#nav-main");
 const menu_toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
 
+const overlay = document.getElementById("overlay");
+overlay.addEventListener("animationend", function() { overlay.style.setProperty('display','none'); });
+
 //toggle menu
 var navToggle = function() {
     menu.classList.toggle("active");
