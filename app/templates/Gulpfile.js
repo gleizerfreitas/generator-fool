@@ -76,6 +76,7 @@ function copyElegantIcons() {
 function observe() {
   watch(paths.styles.src, series(transpileCss, reload));
   watch(paths.docs.srcWatch, series(compilePug, reload));
+  watch(paths.scripts.src, series(minifyJs, reload));
 }
 
 exports.build = series(
