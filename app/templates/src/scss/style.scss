@@ -3,6 +3,7 @@
 @import	"mixins";
 @import "layout";
 @import "animation";
+
 // start typography
 
 body {
@@ -123,7 +124,7 @@ img {
     left: 0;    
     right: 0;
     background-color: map-get($palette, 01);
-    -webkit-animation: slide-down 300ms ease-out;
+    -webkit-animation: slide-down 300ms ease-out 1000ms;
     animation: slide-down 300ms ease-out 1000ms; 
  }
 
@@ -229,6 +230,9 @@ img {
         font-size: 4em;
         margin-bottom: 0;
         @include for-lg {
+            font-size: 5em;
+        }
+        @include for-xl {
             font-size: 7em;
         }
     }
@@ -236,6 +240,41 @@ img {
         margin: 0 0 4em 0;
         line-height: 1.5em;
     }
+}
+
+#topics {
+    display:none;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 3em;    
+    width: 100%;
+    @include for-lg {
+        display: block;
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+        &.topic {
+            display: none;
+            border-left: 1px solid white;
+            padding-left: 1em;
+            height: 100%;
+        }
+    }     
+    .category {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 1.25em;
+            padding-right: 2em;
+            .active {
+                color: map-get($palette, 01);
+            }
+        }
+    }
+   
 }
 
 #blog {
