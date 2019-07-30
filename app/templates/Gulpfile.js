@@ -9,17 +9,21 @@ const tinify = require('gulp-tinify');
 const paths = {
   styles: {
     src: 'src/scss/*.scss',
-    dest: 'dist/css/'
+    dest: 'dist/css'
   },
   docs: {
     src: 'src/pug/*.pug',
     srcWatch: 'src/pug/**/*.pug',
-    dest: 'dist/'
+    dest: 'dist'
+  },
+  scripts: {
+    src: 'src/js/*',
+    dest: 'dist/js'
   },
   images: {
     src: 'src/img/*',
-    dest: 'dist/img/'
-  }
+    dest: 'dist/img'
+  },
 };
 
 function reload(done) {
@@ -36,40 +40,52 @@ function serve(done) {
   done();
 }
 
-function cssTranspile() {
+function transpileCss() {
 	return src(paths.styles.src)
 	  .pipe(sass().on('error', sass.logError))
     .pipe(dest(paths.styles.dest));
 }
 
-function imgTinify() {
+function tinifyImg() {
   return src(paths.images.src)
     //.pipe(tinify('0Fd5wTMn0Rzfx5gSsp8v5dPXhC6cc27f'))
     .pipe(dest(paths.images.dest));
 }
 
-function pugCompile() {
+function compilePug() {
   return src(paths.docs.src)
     .pipe(pug())
     .pipe(dest(paths.docs.dest));
 }
 
-function cpLibElegantIcons() {
+function minifyJs() {
+  return src(paths.scripts.src)
+    .pipe(dest(paths.scripts.dest));
+}
+
+function copyLogo() {
+  return src('src/logo.svg')
+    .pipe(dest('dist'));
+}
+
+function copyElegantIcons() {
   return src('node_modules/elegant-icons/**/*')
     .pipe(dest('dist/lib/elegant-icons'));
 }
 
 function observe() {
-  watch(paths.styles.src, series(cssTranspile, reload));
-  watch(paths.docs.srcWatch, series(pugCompile, reload));
+  watch(paths.styles.src, series(transpileCss, reload));
+  watch(paths.docs.srcWatch, series(compilePug, reload));
 }
 
 exports.build = series(
   parallel(
-    cpLibElegantIcons,
-    imgTinify,
-    cssTranspile,
-    pugCompile),
+    copyLogo,
+    copyElegantIcons,
+    tinifyImg,
+    transpileCss,
+    minifyJs,
+    compilePug),
   serve,
   observe
 );
