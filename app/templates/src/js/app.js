@@ -35,3 +35,29 @@ links.forEach(function(i) {
     i.addEventListener("click", navCollapse);
 });
 
+//topics
+const topics = document.querySelectorAll(".topic");
+const menu_topics = document.querySelectorAll(".category a");
+
+var showTopics = function(tag) {
+    topics.forEach(function(i) {
+        if (i.dataset.tag == tag) {
+            i.style.display = "block";
+            i.classList.add("fadeInUp");
+        }
+        else {
+            i.style.display = "none";
+        }
+    });
+    menu_topics.forEach(function(i) {
+        (i.dataset.tag == tag) ? i.classList.add("active") : i.classList.remove("active")
+    });
+}
+
+menu_topics.forEach(function(i) {
+    i.addEventListener("click", function() {
+        showTopics(i.dataset.tag);
+    });
+});
+
+showTopics("today");
