@@ -2,7 +2,7 @@
 @import	"config";
 @import	"mixins";
 @import "layout";
-
+@import "animation";
 // start typography
 
 body {
@@ -16,7 +16,8 @@ body {
 
 a {
     color: map-get($palette, 01);
-    // .transition-all; MIXIN for transitions
+    outline: 0;
+    @include transition-all;
     &:hover,
     &:focus {
         color: darken(map-get($palette, 01), 15%);
@@ -62,15 +63,18 @@ body {
 
 header {
     color: white; 
-    position: relative;
-    padding-top: 150px;
-    padding-bottom: 150px;
     background-color: #222;
     background-size: cover;
-    background-attachment: scroll; 
+    background-attachment: scroll;
+    @include for-lg {
+        height: 100vh;
+    } 
     h1,
     a {
         color: white;
+        &:hover {
+            color: map-get($palette, 01)
+        }
     }
 }
 
@@ -106,8 +110,103 @@ img {
     }
 }
 
-
 // modules
+#nav-main {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: transparent; 
+    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    @include fixed;
+    .logo {
+        img {
+            width:150px;
+            padding-bottom: 20px;
+        }
+    }
+    .menu-toggle {
+        font-size: 3em;
+        cursor: pointer;
+        @include flexbox();
+        @include justify-content(flex-end);
+        @include for-md {
+            display:none;
+        }
+    }
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        display: none;
+        text-align: center;
+        @include transition-all;
+        @include for-md { 
+            @include flexbox();
+            @include justify-content(flex-end);
+            height: auto
+        }
+        li {
+            color: white;
+            a {
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 0.5em 1em;
+                &:hover,
+                &:active {
+                    color: map-get($palette, 01);
+                }
+            }
+        }
+        &.active {
+            display: block;
+            padding-top: 2em;
+            @include transition-all;
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    font-size: 1.25em;
+                    padding: 1em;
+                }
+            }
+            -webkit-animation: aparece 250ms ease-out;
+            animation: aparece 250ms ease-out;    
+        }
+    }
+    &.shrink,
+    &.active {
+        background-color: map-get($palette, 01); 
+        .menu-toggle {
+            &:hover {
+                color: scale-color(white, $alpha: -25%);
+            }
+        }
+        .menu {
+            li {
+                a {
+                    &:hover {
+                        color: scale-color(white, $alpha: -25%);
+                    }
+                }
+            }
+        }
+    }
+    &.shrink {
+        @include for-md {
+            padding-top: .75em;
+            padding-bottom: .75em;
+        }
+    }
+    &.active {
+        height: 100vh;
+    }    
+}
+
+#hero {
+    padding-top: 6em;
+}
 
 #blog {
     .post {
