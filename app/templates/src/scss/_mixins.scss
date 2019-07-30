@@ -1,0 +1,33 @@
+@mixin for-xs {
+    @media (max-width: calc(37.5rem - 1px)) { @content; }
+}
+
+@mixin for-sm {
+    @media (min-width: 37.5rem) { @content; }
+}
+
+@mixin for-md {
+    @media (min-width: 56.25rem) { @content; }
+}
+
+@mixin for-lg {
+    @media (min-width: 75rem) { @content; }
+}
+
+@mixin for-xl {
+    @media (min-width: 93.75rem) { @content; }
+}
+
+@mixin transition-all {
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+
+@mixin fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;    
+}
