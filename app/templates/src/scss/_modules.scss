@@ -1,0 +1,197 @@
+
+#overlay {
+    position: fixed;
+    z-index: 3000;
+    height: 100%;
+    width: 100%;
+    opacity:1;
+    top: 0;
+    bottom: 0;
+    left: 0;    
+    right: 0;
+    background-color: map-get($palette, 01);
+    -webkit-animation: slide-down 300ms ease-out 1000ms;
+    animation: slide-down 300ms ease-out 1000ms; 
+ }
+
+
+#nav-main {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: transparent; 
+    -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    @include fixed;
+    .logo {
+        img {
+            width:150px;
+            padding-bottom: 20px;
+        }
+    }
+    .menu-toggle {
+        font-size: 3em;
+        cursor: pointer;
+        @include flexbox();
+        @include justify-content(flex-end);
+        @include for-md {
+            display:none;
+        }
+    }
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        display: none;
+        text-align: center;
+        @include transition-all;
+        @include for-md { 
+            @include flexbox();
+            @include justify-content(flex-end);
+            height: auto
+        }
+        li {
+            color: white;
+            a {
+                color: white;
+                text-transform: uppercase;
+                text-decoration: none;
+                padding: 0.5em 1em;
+                &:hover,
+                &:active {
+                    color: map-get($palette, 01);
+                }
+            }
+        }
+        &.active {
+            display: block;
+            padding-top: 2em;
+            @include transition-all;
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    font-size: 1.25em;
+                    padding: 1em;
+                }
+            }
+            -webkit-animation: aparece 250ms ease-out;
+            animation: aparece 250ms ease-out;    
+        }
+    }
+    &.shrink,
+    &.active {
+        background-color: map-get($palette, 01); 
+        .menu-toggle {
+            &:hover {
+                color: scale-color(white, $alpha: -25%);
+            }
+        }
+        .menu {
+            li {
+                a {
+                    &:hover {
+                        color: scale-color(white, $alpha: -25%);
+                    }
+                }
+            }
+        }
+    }
+    &.shrink {
+        @include for-md {
+            padding-top: .75em;
+            padding-bottom: .75em;
+        }
+    }
+    &.active {
+        height: 100vh;
+    }    
+}
+
+#hero {
+    padding-top: 10em;
+    h1 {
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 4em;
+        margin-bottom: 0;
+        @include for-lg {
+            font-size: 5em;
+        }
+        @include for-xl {
+            font-size: 7em;
+        }
+    }
+    p {
+        margin: 0 0 4em 0;
+        line-height: 1.5em;
+    }
+}
+
+#topics {
+    display:none;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 3em;    
+    width: 100%;
+    @include for-lg {
+        display: block;
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+        &.topic {
+            display: none;
+            border-left: 1px solid white;
+            padding-left: 1em;
+            height: 100%;
+        }
+    }     
+    .category {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 1.25em;
+            padding-right: 2em;
+            .active {
+                color: map-get($palette, 01);
+            }
+        }
+    }
+   
+}
+
+#blog {
+    .post {
+        border-radius: .5em;
+        box-shadow: darken(map-get($palette, 04),10%) 0 0 1em;
+        .banner {
+            border-radius: .5em .5em 0 0;
+            background-size: cover;
+            background-position: center center;
+            height: 20em;
+        }
+        .info {
+            border-radius: 0 0 .5em .5em;
+            padding:1.5em;
+            background-color: white;
+        }
+    }
+}
+
+#about {
+    .banner {
+        border-radius: .5em;
+        height: 400px;
+        margin-bottom: 2em;
+        background-size: cover;
+        background-position: center center;
+        @include for-lg {
+            height: 600px;
+        }
+    }
+}
+
+
