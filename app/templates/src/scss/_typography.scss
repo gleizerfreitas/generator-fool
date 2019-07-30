@@ -1,0 +1,42 @@
+body {
+    font-family: $font;
+    font-weight: 400;
+    font-size: 1.25em;
+    line-height: 2em;
+    text-align: left;
+    color: map-get($palette, 02);
+}
+
+a {
+    color: map-get($palette, 01);
+    outline: 0;
+    @include transition-all;
+    &:hover,
+    &:focus {
+        color: darken(map-get($palette, 01), 15%);
+        text-decoration: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: .5em;
+    color: map-get($palette, 02);
+}
+
+h1 { font-size: 2.5em; }
+h2 { 
+    font-size: 2em;
+    color: map-get($palette, 01);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.15em; }
