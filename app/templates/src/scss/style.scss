@@ -66,9 +66,11 @@ header {
     color: white; 
     background-color: #222;
     background-size: cover;
-    background-attachment: scroll;
+    min-height: 600px;
+    background-position: center center;
     @include for-lg {
         height: 100vh;
+        background-attachment: fixed;
     } 
     h1 { color: white; }
     a {
@@ -80,7 +82,7 @@ header {
 }
 
 main section {
-    padding: 3em 0;
+    padding: 6em 0 3em;
 }
 
 hr {
