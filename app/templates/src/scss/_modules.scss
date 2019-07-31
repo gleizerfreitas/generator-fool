@@ -164,19 +164,80 @@
 }
 
 #blog {
+    .controls {
+        position: relative;
+        top:-27rem;
+        .button {
+            padding: .5em 0;
+            border-radius: 2px;
+            font-size:2em;
+            cursor: pointer;
+            &.ctrl-prev {
+                margin-left: -.5em;
+            }
+            &.ctrl-next {
+                margin-right: -.5em;
+            }
+
+        }
+    }
+    .list {
+        scroll-behavior: smooth;
+        padding: 1rem 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        @include flexbox();
+        @include flex(0, 1, auto);
+        @include flex-direction(row);
+        @include flex-wrap(no-wrap);
+        margin-right: $gutter-compensation;
+        margin-left: $gutter-compensation; 
+        .post-anchor {
+            @include flexboxgrid-sass-col-common;
+            @include for-xs { 
+                @include flex-basis(20rem);
+                max-width: 20rem;
+             }
+            @include for-sm {
+                @include flex-basis(34.5rem);
+                max-width: 34.5rem;
+            }
+            @include for-md {
+                @include flex-basis(53.25rem / 2);
+                max-width: (53.25rem / 2);
+            }
+            @include for-lg {
+                @include flex-basis(72rem / 3);
+                max-width: (72rem / 3);
+            }
+            @include for-xl {
+                @include flex-basis(90.75rem / 3);
+                max-width: (90.75rem / 3);
+            }
+        }       
+    }
     .post {
-        border-radius: .5em;
-        box-shadow: darken(map-get($palette, 04),10%) 0 0 1em;
+        border-radius: .5rem;
+        box-shadow: darken(map-get($palette, 04),10%) 0 0 1rem;
+        height: 100%;
+        background: white;
         .banner {
-            border-radius: .5em .5em 0 0;
+            border-radius: .5rem .5rem 0 0;
             background-size: cover;
             background-position: center center;
-            height: 20em;
+            height: 16em;
         }
         .info {
-            border-radius: 0 0 .5em .5em;
+            border-radius: 0 0 .5rem .5rem;
             padding:1.5em;
             background-color: white;
+            h3 {
+                font-weight: 400;
+            }
+            p {
+                color: map-get($palette, 03);
+                line-height: 1.25em;
+            }
         }
     }
 }
@@ -193,5 +254,3 @@
         }
     }
 }
-
-
