@@ -1,0 +1,74 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: map-get($palette, 04);
+}
+
+header {
+    color: white; 
+    background-color: #222;
+    background-size: cover;
+    min-height: 600px;
+    background-position: center center;
+    @include for-lg {
+        height: 100vh;
+        background-attachment: fixed;
+    } 
+    h1 { color: white; }
+    a {
+        color: white;
+        &:hover {
+            color: map-get($palette, 01)
+        }
+    }
+}
+
+main {
+    section {
+        padding: 8em 0 0;
+    }
+}
+
+hr {
+    margin: 2rem auto;
+    height: 1px;
+    border: 0;
+    border-top:1px solid lighten(map-get($palette, 03), 15%);
+}
+
+footer {
+    p {
+        color: lighten(map-get($palette, 03), 15%);
+    }
+}
+
+img { 
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.button {
+    padding: 1em 3em;
+    background-color: map-get($palette, 01);
+    color:white;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color:white;
+        background-color: lighten(map-get($palette, 01), 20%);
+    }
+}
+
+.magenta {color:map-get($palette, 01); }

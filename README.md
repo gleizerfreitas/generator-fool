@@ -31,7 +31,7 @@ Create a new directory where you'll use this generator as a starting point for a
 
 	yo fool
 
-You will be greated by Yeoman and he will ask you some basic questions regarding your new project. This **meta-data information** is used inside some of the Yeoman generated files.
+You will be greated by Yeoman and he will ask you some basic questions regarding your new project. 
 
 Finally a web browser will open with `http://localhost:3000`. In the background Gulp is watching for changes to the following files:
 
@@ -54,7 +54,7 @@ In the still running **command-line window** (Terminal or MS-DOS prompt) hit `ct
 
 To continue working on your site open a **command-line window** (Terminal or MS-DOS prompt) and make sure you `cd` into the directory where the `Gulpfile.js` resides and type:
 
-	gulp serve
+	gulp build
 
 ## Updating
 
@@ -62,7 +62,7 @@ If this Yeoman generator is updated you can update your globally installed versi
 
 	npm install -g [PATH]/generator-fool
 
-### Removing
+## Removing
 
 Optionally: If you want to remove this globally installed Yeoman generator you need to **unlink** it. Open a **command-line window** (Terminal or MS-DOS prompt) and type:
 

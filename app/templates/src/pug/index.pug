@@ -1,5 +1,21 @@
-extends extends/home
-block content
-	p Sed pharetra facilisis turpis, finibus gravida sem porta et. Aliquam ut eleifend ex, non rutrum elit. Nam non magna in lorem bibendum auctor. Sed luctus lectus sapien, ut maximus urna porttitor nec. Aliquam malesuada malesuada condimentum. Nunc vel augue ac leo sagittis maximus molestie at diam. Vestibulum luctus iaculis lobortis. Aenean a dui nisl. Curabitur mattis ex in lectus tincidunt aliquam. Maecenas imperdiet tortor turpis, nec tincidunt est auctor quis. Nunc suscipit felis id enim dapibus, at aliquet ligula hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut faucibus ultricies leo luctus eleifend. Sed porttitor dui non odio vulputate condimentum.
-	p Aliquam vehicula porta tortor, quis sagittis lorem. Curabitur pharetra purus pellentesque convallis euismod. Nunc laoreet augue neque, in hendrerit lorem aliquam vel. Pellentesque pulvinar urna tellus, nec feugiat lectus hendrerit nec. Aliquam consectetur eleifend massa non porttitor. Vivamus id libero tristique, pretium justo at, aliquet nunc. Proin fringilla gravida arcu. Curabitur malesuada at enim vel bibendum.
-	p Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc semper vulputate nisl eu bibendum. Morbi a massa vehicula, tempus lectus eu, gravida metus. Phasellus sit amet metus semper, cursus lacus id, pellentesque enim. Curabitur blandit mauris diam, vel facilisis eros accumsan ut. Nulla tristique nisl ac tempor sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent id ligula placerat, pellentesque enim eu, blandit turpis. Nulla ultrices sem ante, quis sodales elit ultricies et. Aenean imperdiet nisi turpis, et tristique lorem ornare consectetur. Mauris vitae posuere neque. Phasellus eu metus vitae est fermentum efficitur ac eget purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse nec massa venenatis, tincidunt augue in, euismod dolor. 	
+doctype html
+
+html(lang="pt-br")
+	head
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet")
+		link(href="lib/elegant-icons/style.css", rel="stylesheet")
+		link(href="css/style.css", rel="stylesheet")
+		title #{siteTitle}
+	body
+		include modules/overlay
+		header(style='background-image: url(img/005.jpg)')
+			include modules/menu
+			include modules/hero
+			include modules/topics
+		main
+			include modules/blog
+			include modules/about
+		footer
+			include modules/footer
+		script(src='js/app.js')

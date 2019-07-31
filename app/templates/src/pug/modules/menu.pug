@@ -1,4 +1,23 @@
-nav
-	ul
-		li
-			a(href="#")
+nav(id='nav-main' class='')
+	div(class='container-fluid container')
+		div(class='row middle-xs')
+			div(class='col-xs-12 col-md-3')
+				div(class='row middle-xs')
+					div(class='col-xs-8')
+						a(class='logo' href='#')
+							img(src='logo.svg')
+					div(class='col-xs-4')
+						a(class='menu-toggle' aria-hidden='true' data-icon='a')
+			div(class='col-xs-12 col-md-9')
+				div(class='row end-xs')
+					div(class='col-xs-12')
+						ul(class='menu')
+							li
+								a(href='#blog') Blog
+							li
+								a(href='#pop') Popular
+							li
+								a(href='#arc') Archive
+							li
+								a(href='#about') About
+			
