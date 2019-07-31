@@ -20,7 +20,6 @@ var navCollapse = function() {
     if(menu.classList.contains("active")) 
         navToggle();
 }
-window.onresize = navCollapse;
 
 //shrink nav
 var navShrink = function() {
@@ -53,11 +52,36 @@ var showTopics = function(tag) {
         (i.dataset.tag == tag) ? i.classList.add("active") : i.classList.remove("active")
     });
 }
-
 menu_topics.forEach(function(i) {
     i.addEventListener("click", function() {
         showTopics(i.dataset.tag);
     });
 });
-
 showTopics("today");
+
+//blog
+const control_prev = document.querySelector("#blog .ctrl-prev");
+const control_next = document.querySelector("#blog .ctrl-next");
+const post_list = document.querySelector("#blog .list");
+const post = document.querySelector("#post1");
+
+control_prev.addEventListener("click", function() {
+    var scroll = post_list.scrollLeft;
+    post_list.scrollTo({
+        left: scroll - post.offsetWidth
+    });
+});
+
+control_next.addEventListener("click", function() {
+    var scroll = post_list.scrollLeft;
+    post_list.scrollTo({
+        left: scroll + post.offsetWidth
+    });
+});
+
+window.onresize = function() {
+    navCollapse;
+    post_list.scrollTo({
+        left: 0
+    });
+};
