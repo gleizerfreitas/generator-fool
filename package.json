@@ -1,6 +1,6 @@
 {
   "name": "generator-fool",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Yeoman generator for simple websites using Gulp 4 with the Pug templating system and Sass to transpile styles.",
   "main": "app/index.js",
   "repository": {
