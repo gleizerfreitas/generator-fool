@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background-color: map-get($palette, 04);
@@ -28,8 +32,10 @@ header {
     }
 }
 
-main section {
-    padding: 6em 0 3em;
+main {
+    section {
+        padding: 8em 0 0;
+    }
 }
 
 hr {
@@ -61,7 +67,7 @@ img {
     &:hover,
     &:focus {
         color:white;
-        background-color: lighten(map-get($palette, 01), 5%);
+        background-color: lighten(map-get($palette, 01), 20%);
     }
 }
 
