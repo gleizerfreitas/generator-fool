@@ -7,8 +7,8 @@ var Generator = require('yeoman-generator'),
 
 module.exports = class extends Generator {
 	initializing() {
-		var message = chalk.yellow.bold('Welcome to my ') + chalk.yellow('fool generator');
-		this.log(yosay(message, { maxLength: 15 }));
+		var message = chalk.yellow.bold('Welcome,') + chalk.yellow('Yo fool!');
+		this.log(yosay(message, { maxLength: 10 }));
 	}
 
 	prompting() {
@@ -69,28 +69,17 @@ module.exports = class extends Generator {
 				appyear: new Date().getFullYear()
 			};
 
-		// ---------------------------
-		// Copy over files and directories
-		// ---------------------------
-
 		this.fs.copy(sourceRoot + '/src', destRoot + '/src');
 		this.fs.copy(sourceRoot + '/_gitignore', destRoot + '/.gitignore');
-
 		this.fs.copyTpl(sourceRoot + '/Gulpfile.js', destRoot + '/Gulpfile.js', templateContext);
 		this.fs.copyTpl(sourceRoot + '/package-gulp.json', destRoot + '/package.json', templateContext);
-
-		// ---------------------------
-		// Copy over (template) files with placeholder filled answers
-		// ---------------------------
-
 		this.fs.copyTpl(sourceRoot + '/LICENSE', destRoot + '/LICENSE', templateContext);
 		this.fs.copyTpl(sourceRoot + '/README.md', destRoot + '/README.md', templateContext);
-		this.fs.copyTpl(sourceRoot + '/src/pug/index.pug', destRoot + '/src/pug/index.pug', templateContext);
-		this.fs.copyTpl(sourceRoot + '/src/pug/conf/conf.pug', destRoot + '/src/pug/conf/conf.pug', templateContext);
+		this.fs.copyTpl(sourceRoot + '/src/pug/modules/footer.pug', destRoot + '/src/pug/modules/footer.pug', templateContext);
 	}
 
 	install() {
-		var message = chalk.yellow.bold('Running NPM install, hold on ...');
+		var message = chalk.yellow.bold('install dependencies...');
 		this.log(yosay(message, { maxLength: 20 }));
 		this.npmInstall();
 	}

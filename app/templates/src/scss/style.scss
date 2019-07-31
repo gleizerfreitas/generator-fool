@@ -1,4 +1,7 @@
-// Flexboxgrid-Sass by 
-@import "../../node_modules/flexboxgrid-sass/flexboxgrid.scss";
 @import	"config";
 @import	"mixins";
+@import "layout";
+@import "animation";
+@import "typography";
+@import "general";
+@import "modules";
