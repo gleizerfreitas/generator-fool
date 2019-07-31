@@ -48,7 +48,7 @@ function transpileCss() {
 
 function tinifyImg() {
   return src(paths.images.src)
-    //.pipe(tinify('0Fd5wTMn0Rzfx5gSsp8v5dPXhC6cc27f'))
+    .pipe(tinify('0Fd5wTMn0Rzfx5gSsp8v5dPXhC6cc27f'))
     .pipe(dest(paths.images.dest));
 }
 

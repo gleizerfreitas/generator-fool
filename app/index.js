@@ -75,6 +75,7 @@ module.exports = class extends Generator {
 		this.fs.copyTpl(sourceRoot + '/package-gulp.json', destRoot + '/package.json', templateContext);
 		this.fs.copyTpl(sourceRoot + '/LICENSE', destRoot + '/LICENSE', templateContext);
 		this.fs.copyTpl(sourceRoot + '/README.md', destRoot + '/README.md', templateContext);
+		this.fs.copyTpl(sourceRoot + '/src/pug/modules/footer.pug', destRoot + '/src/pug/modules/footer.pug', templateContext);
 	}
 
 	install() {
